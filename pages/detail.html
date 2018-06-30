@@ -1,0 +1,43 @@
+   
+<div class="container">
+  <div class="row">
+       <h4>{{ title }}</h4>
+       <address>
+         <h2>{{ data.name }}</h2>
+          <email><a href="mailto: {{ data.email }}">{{ data.email }}</a></email>
+       </address>
+  
+         <div class="col-md-12">
+           <div class="col-md-2" ng-repeat="trophy in data.trophies">
+               <div class="trophy well">
+                 <div class="title text-danger">{{trophy.type}}</div>
+                 <div class="points text-success">{{trophy.points}}</div>
+                 <div class="mclass text-muted"><small>{{trophy.class}}</small></div>
+               </div>
+            </div>
+         </div>	   
+	 
+
+		<div id="" class="col-md-12">	
+		<div class="carousel carousel-slider"  >
+				  <div class="carousel-item" href="#" ng-repeat="i in data.images">
+					<img class="" ng-src="{{i.image}}" />
+				  </div>			
+		</div>	
+	   </div>	
+	   
+        <a ng-click="back()"  class="btn">Back</a>	    
+		<button class="btn btn-danger" ng-click="removeContact(data)">
+			<span>Remove</span>
+		</button>	
+			  
+  </div>	   
+</div>
+
+<script>
+	$(document).ready(function(){ 
+			$('.carousel').carousel({
+				fullWidth: true
+			});     			
+	}); 	
+</script>

@@ -1,0 +1,73 @@
+<style>
+.carousel .carousel-item{
+  width:100%;
+}
+</style>
+
+<div class="container">
+<div style="background:transparent !important" "class="jumbotron text-center">
+	<h1>{{ title }}</h1>
+	
+	<p class="center-align">{{ message }}</p>
+</div>
+
+<div class="video-container responsive-video">
+        <iframe width="415" height="241" src="//www.youtube.com/embed/m1FZHgv4HF4?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+
+  <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="fa fa-star" aria-hidden="true"></i></h2>
+            <h5 class="center">Crew Dragon</h5>
+
+            <p class="light center-align">Step inside SpaceX's next gen spacecraft for human spaceflight.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="fa fa-flag" aria-hidden="true"></i></h2>
+            <h5 class="center">Pad Abort Test</h5>
+
+            <p class="light center-align">Crew Dragon completes Pad Abort Test.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="fa fa-rocket" aria-hidden="true"></i></h2>
+            <h5 class="center">Dragon Delivers Cargo</h5>
+			
+            <p class="light center-align">Sixth official ISS resupply mission.</p>
+          </div>
+        </div>
+      </div>
+
+  <div class="row">
+  <ul id="tabs-swipe-demo" class="tabs">
+    <li class="tab col s4"><a href="#swipe-1">CARGO</a></li>
+    <li class="tab col s4"><a  href="#swipe-2">CREW</a></li>
+    <li class="tab col s4"><a href="#swipe-3">DRAGONLAB</a></li>
+  </ul>
+  <div id="swipe-1" class="col s13"><img class="responsive-img" src="images/dragon-intertior.jpg"></div>
+  <div id="swipe-2" class="col s13"><img class="responsive-img" src="images/dragon-v2-interior-wide-cropped.jpg"></div>
+  <div id="swipe-3" class="col s13"><img class="responsive-img" src="images/dragon-lab.jpg"></div>
+  
+    
+
+    </div>
+
+    <br><br>
+	
+  </div>
+  
+<script>
+$(document).ready(function(){
+    $('ul.tabs').tabs({
+      swipeable : true,
+      responsiveThreshold : 1920
+    });
+});
+</script>

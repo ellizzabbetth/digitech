@@ -1,0 +1,123 @@
+
+
+<div class="container">
+  <div class="row">
+  <div style="background:transparent !important" class=" text-center">
+	<h1>{{ title }}</h1>
+	
+	<p>{{ message }}</p>
+</div>
+  <form class="col s12" id="register" >
+    <div class="row">
+	  <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="first_name" type="text" class="validate"  required="" aria-required="true">
+          <label for="icon_prefix">First Name</label>
+      </div>
+	  <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="last_name" type="text" class="validate"  required="" aria-required="true">
+          <label for="icon_prefix">Last Name</label>
+      </div>
+      <div class="input-field col s12">
+          <i class="material-icons prefix">phone</i>
+          <input id="icon_tel" type="tel" class="validate"  required="" aria-required="false">
+          <label for="icon_telephone">Telephone</label>
+      </div>
+	  <div class="input-field col s12">
+          <i class="material-icons prefix">date_range</i>
+          <input id="date" type="date" class="datepicker" required="" aria-required="true">
+          <label for="date">Date</label>
+      </div>
+      <div class="input-field col s12">
+	    <i class="material-icons prefix">email</i>
+        <input id="email2" type="email" class="validate" required="" aria-required="false">
+        <label for="email2">Email</label>
+      </div>
+	  <div class="file-field col s12 input-field">
+	  			<i class="material-icons prefix">attach_file</i>
+				<div class="btn">
+				  <span>Attach file</span>
+				  <input type="file">
+				</div>
+				<div class="file-path-wrapper">
+				  <input class="file-path validate" type="text" required="" aria-required="false">
+				</div>
+	  </div>
+    
+      <div class="input-field col s12">
+	    <i class="material-icons prefix">arrow_drop_down</i>
+        <select required="" aria-required="false">
+			<option value="" disabled selected>Choose your area</option>
+			<option value="1">Technology</option>
+			<option value="2">Art</option>
+			<option value="3">Engineering</option>
+		</select>
+        <label></label>
+      </div>
+	  <div class="input-field col s12">
+	     <i class="material-icons prefix">comment</i>
+                <textarea id="textarea1" class="materialize-textarea" required="" aria-required="false"></textarea>
+                <label for="textarea1">Comments</label>
+      </div>
+      <div class="input-field col s12">
+        <button id = "submit" class="right btn waves-effect waves-light" type="submit" name="action">Submit</button>
+      </div>
+    </div>
+	
+  </form>
+  
+</div>
+
+</div>
+
+
+
+<script>
+$(document).ready(function () {
+  $(".datepicker").pickadate({
+    closeOnSelect: true,
+    format: "dd/mm/yyyy"
+  });
+  
+  $('select').material_select();
+
+  // for HTML5 "required" attribute
+  $("select[required]").css({
+      display: "inline",
+      height: 0,
+      padding: 0,
+      width: 0
+  });
+}); <!-- End .ready -->
+
+<!-- Force HTML5 validation before submitting -->
+$("#submit").click(function(e) {
+  var isValidated = $("#register")[0].checkValidity();
+  if(isValidated){
+	  event.preventDefault();
+	  var fname = $("#first_name").val();   
+	  var lname = $("#last_name").val();
+
+	  $.ajax({
+		type: 'POST',
+		url: 'https://httpbin.org/post',
+		data: {
+		  fname: fname, lname: lname
+		},
+		dataType: 'json',
+		success: function(data) {
+			$(".container").css("opacity", 0);
+			Materialize.toast('Hello ' + fname + ' ' + lname + '! Your info is saved', 2000, "none", function(){
+			$(".container").css("opacity", 1);
+			$('#register').trigger("reset"); 
+		  })
+		 
+		},
+		error: function(data) {
+		  console.log("ajax post error");
+		}
+	  });
+  }
+});
+</script/

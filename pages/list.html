@@ -1,0 +1,44 @@
+
+
+<div class="container">
+       <div class="row">
+	     <div style="background:transparent !important" class=" text-center">
+			<h1>{{ title }}</h1>			
+			<p>{{ message }}</p>
+		</div>
+         <div class="col-md-12">
+           <div class="text-left">
+         	
+			</div>
+            <a ng-click="toggleForm()" class="btn btn-link">Add</a>
+            <form role="form" ng-show="showform" class="form"> 
+               <div class="form-group">
+                  <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="name"   ng-model="form.name"/>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="col-md-4">
+                    <input type="email" class="form-control" placeholder="your@email.com" ng-model="form.email"/>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <button class="btn btn-primary" ng-click="saveContact()">Save</button>
+                  <button class="btn btn-default" ng-click="cancelForm()">Cancel</button>
+               </div>
+               <hr />
+            </form>
+            
+            
+
+         </div>
+          <div class="col-md-4">
+            <div class="list-group">
+               <a href="#detail/{{ item.id }}" ng-repeat="item in items" class="list-group-item">{{ item.name }}</a>
+			  
+             </div>
+          </div>
+       </div>
+
+
+</div>
